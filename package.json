@@ -1,0 +1,22 @@
+{
+  "name": "CUBOS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node_modules/.bin/nodemon -e js"
+  },
+  "keywords": [],
+  "author": "Haroldo Costa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-query-int": "^3.0.0",
+    "moment": "^2.24.0",
+    "node-restful": "^0.2.6"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10"
+  }
+}
