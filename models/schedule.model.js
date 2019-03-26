@@ -15,7 +15,6 @@ const getSchedules = (period) => {
         let { DataDe, DataAte } = period
         let diaDoAnoDe = moment(DataDe, 'DD-MM-YYYY').dayOfYear()
         let diaDoAnoAte = moment(DataAte, 'DD-MM-YYYY').dayOfYear()
-        
         let Schedules = Array()
 
         for (let index = diaDoAnoDe; index <= diaDoAnoAte; index++) {
@@ -24,9 +23,8 @@ const getSchedules = (period) => {
             let flag = 'daily'
             rules.forEach(rule => {
                 if (rule.type === 'daily')
-                    if(flag === 'daily'){
+                    if(flag === 'daily')
                         dayIntervals = rule.intervals
-                    }
                 if (rule.type === 'weekly')
                     rule.days.forEach(day => {
                         if(day === date.weekday())
@@ -41,19 +39,12 @@ const getSchedules = (period) => {
                         flag = 'specific'
                     }
             })
-            let day = {
-                day: date.format('DD-MM-YYYY'),
-                intervals: dayIntervals
-            }
+            let day = { day: date.format('DD-MM-YYYY'), intervals: dayIntervals }
             Schedules.push(day)
         }
-        let result = {
-            Schedules
-        }
-
+        let result = { Schedules }
         resolve(result)
     })
 }
-module.exports = {
-    getSchedules
-}
+
+module.exports = { getSchedules }

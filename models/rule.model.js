@@ -2,7 +2,8 @@ const basePath = require('../consts')
 const filename = `${basePath}/data/rules.json`
 let rules = require(filename)
 const helper = require('../helpers/helper')
-function getRules() {
+
+const getRules = () => {
     return new Promise((resolve, reject) => {
         if (rules.length === 0) {
             reject({
@@ -13,14 +14,16 @@ function getRules() {
         resolve(rules)
     })
 }
-function getRule(id) {
+
+const getRule = (id) => {
     return new Promise((resolve, reject) => {
         helper.mustBeInArray(rules, id)
         .then(rule => resolve(rule))
         .catch(err => reject(err))
     })
 }
-function insertRule(newRule) {
+
+const insertRule = (newRule) => {
     return new Promise((resolve, reject) => {
         const id = { id: helper.getNewId(rules) }
         const date = { 
@@ -33,7 +36,8 @@ function insertRule(newRule) {
         resolve(newRule)
     })
 }
-function updateRule(id, newRule) {
+
+const updateRule = (id, newRule) => {
     return new Promise((resolve, reject) => {
         helper.mustBeInArray(rules, id)
         .then(rule => {
@@ -52,7 +56,8 @@ function updateRule(id, newRule) {
         })
     })
 }
-function deleteRule(id) {
+
+const deleteRule = (id) => {
     return new Promise((resolve, reject) => {
         helper.mustBeInArray(rules, id)
         .then(() => {
@@ -63,6 +68,7 @@ function deleteRule(id) {
         .catch(err => reject(err))
     })
 }
+
 module.exports = {
     insertRule,
     getRules,

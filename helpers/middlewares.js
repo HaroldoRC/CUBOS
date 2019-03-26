@@ -13,7 +13,6 @@ const mustBeInteger = (req, res, next) => {
 
 const checkFieldsRule = (req, res, next) => {
     const { type, days, date, intervals } = req.body
-    
     switch (type) {
         case 'daily':
             if(intervals){
@@ -35,7 +34,7 @@ const checkFieldsRule = (req, res, next) => {
                             })
                         })
                     }
-                        
+
                 })
                 next()
             }
@@ -54,6 +53,7 @@ const checkFieldsRule = (req, res, next) => {
             break;
     }
 }
+
 module.exports = {
     mustBeInteger,
     checkFieldsRule

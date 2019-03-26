@@ -16,6 +16,8 @@
     "node-restful": "^0.2.6"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10"
   }
